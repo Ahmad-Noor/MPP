@@ -8,11 +8,12 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		List<String> fruits = Arrays.asList("Apple", "Banana", "Orange", "Cherries", "blums");
-		fruits.forEach(x -> System.out.println("fruit : " + x));
-		System.out.println("-----------------------------------------------------");
-		Consumer<List<String>> consumer = (s) -> System.out.println(s);
-		consumer.accept(fruits);
+			List<String> fruits = Arrays.asList("Apple", "Banana", "Orange", "Cherries", "blums");
+ 
+		System.out.println("--------------------Lambdas---------------------------------");
+		fruits.forEach(x->System.out.println(x));
+		System.out.println("--------------------Method reference------------------------");
+		fruits.forEach(System.out::println);
 		
 
 	}
