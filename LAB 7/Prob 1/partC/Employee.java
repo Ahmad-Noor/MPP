@@ -1,4 +1,6 @@
-package lesson7.labs.prob1.partC;
+package homeworks.prob1.partC;
+
+import java.util.Objects;
 
 public class Employee {
 	private String name;
@@ -32,6 +34,13 @@ public class Employee {
 		Employee emp = (Employee)ob;
 		return emp.name.equals(name) && emp.salary == salary;
 	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return Objects.hash(name, salary);
+	}
+	
 	
 	
 }

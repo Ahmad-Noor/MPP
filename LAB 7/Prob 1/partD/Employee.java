@@ -1,4 +1,4 @@
-package lesson7.labs.prob1.partD;
+package homeworks.prob1.partD;
 
 public class Employee {
 	private String name;
@@ -36,7 +36,7 @@ public class Employee {
 		if(ob == null) return false;
 		if(!(ob instanceof Employee)) return false;
 		Employee emp = (Employee)ob;
-		return emp.name.equals(name) && emp.salary == salary && emp.visited == visited;
+		return emp.name.equals(name) && emp.salary == salary ;
 	}
 	
 	@Override

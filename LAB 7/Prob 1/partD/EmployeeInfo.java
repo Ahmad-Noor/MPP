@@ -1,4 +1,4 @@
-package lesson7.labs.prob1.partC;
+package homeworks.prob1.partD;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +20,8 @@ public class EmployeeInfo {
 			if(!tracker.containsKey(e)) {
 				tracker.put(e, e);
 				noDupsList.add(e);
+			} else {
+				tracker.get(e).setVisited(true);
 			}
 		}
 		return noDupsList;
