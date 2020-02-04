@@ -67,30 +67,28 @@ public class ConstructorReference {
 	}
 	
 	public static void main(String args[]) {
-		Human[] list = { new Human("Joe", 35, "Male"), new Human("Jane", 45, "Female"), new Human("John", 30, "Male") };
+		Human[] list = { new Human("Ahmed", 35, "Male"), new Human("Jane", 45, "Female"), new Human("John", 30, "Male") };
 
 		// Query 1 : Print only Female candidates names
 		
 		streamOfHuman(list).filter(human -> human.getGender().equalsIgnoreCase("Female"))
 				.forEach(human -> System.out.println(human.getName()));
 
-		// Query 2 : Create an object by choosing suitable Interface to the specified
-		// constructors(Totally 3 constuctors)
-		//	using fourth type of Method Reference ClassName::new. Then print the object status 
+                // Query 2 : Cretae an objecy by choosing suitable Interface to the specified constructors(Totally 3 constuctors)using fouth type of Method Reference ClassName::new. Then print the object status 
 		System.out.println("Query 2, 1st constructor: ");
-		List<String> names = Arrays.asList("Joe", "Jane", "John"); 
+		List<String> names = Arrays.asList("Ahmed", "Jane", "John"); 
 		names.stream().map(Human::new)
 						.forEach(System.out::println);
 		
 		BiFunction<String, Integer, Human> secondConstructor = Human::new;
 		System.out.println("Query 2, 2nd constructor: ");
-		System.out.println(secondConstructor.apply("Joe", 35));
+		System.out.println(secondConstructor.apply("Ahmed", 35));
 		System.out.println(secondConstructor.apply("Jane", 45));
 		System.out.println(secondConstructor.apply("John", 30));
 		
 		MyFunc<String, Integer, String, Human> thirdConstructor = Human::new;
 		System.out.println("Query 3, 3nd constructor: ");
-		System.out.println(thirdConstructor.apply("Joe", 35, "Male"));
+		System.out.println(thirdConstructor.apply("Ahmed", 35, "Male"));
 		System.out.println(thirdConstructor.apply("Jane", 45, "Female"));
 		System.out.println(thirdConstructor.apply("John", 30, "Male"));
 		
