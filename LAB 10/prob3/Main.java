@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
-		List<String> list = Arrays.asList("Ahmed", "Saher", "Joe");
-		boolean result = Main.contains(list, "Joe");
+		List<String> list = Arrays.asList("Bob", "Joe", "Tom");
+		boolean result = Main.contains(list, "Tom");
 		System.out.println(result);
 	}
 
@@ -28,11 +28,11 @@ public class Main {
 				return true;
 			if (x == null || t == null)
 				continue;
-			if (x.compareTo(t) == 0)
+			if (x.equals(t))
 				return true;
 		}
 
 		return false;
 	}
- 
+
 }
