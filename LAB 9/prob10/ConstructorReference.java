@@ -70,9 +70,7 @@ public class ConstructorReference {
 		Human[] list = { new Human("Ahmed", 35, "Male"), new Human("Jane", 45, "Female"), new Human("John", 30, "Male") };
 
 		// Query 1 : Print only Female candidates names
-		
-		streamOfHuman(list).filter(human -> human.getGender().equalsIgnoreCase("Female"))
-				.forEach(human -> System.out.println(human.getName()));
+		 Stream.of(list).filter(c->c.getGender().equals("Female")).forEach(c->System.out.println(c.getName()));
 
                 // Query 2 : Cretae an objecy by choosing suitable Interface to the specified constructors(Totally 3 constuctors)using fouth type of Method Reference ClassName::new. Then print the object status 
 		System.out.println("Query 2, 1st constructor: ");
