@@ -67,7 +67,7 @@ public class ConstructorReference {
 	}
 	
 	public static void main(String args[]) {
-		Human[] list = { new Human("Ahmed", 35, "Male"), new Human("Jane", 45, "Female"), new Human("John", 30, "Male") };
+		Human[] list = { new Human("Joe", 35, "Male"), new Human("Jane", 45, "Female"), new Human("John", 30, "Male") };
 
 		// Query 1 : Print only Female candidates names
 		 Stream.of(list).filter(c->c.getGender().equals("Female")).forEach(c->System.out.println(c.getName()));
@@ -91,9 +91,8 @@ public class ConstructorReference {
 		System.out.println(thirdConstructor.apply("John", 30, "Male"));
 		
 		// Query 3 : Count the male candidates whose age is more than 30
-		long count = streamOfHuman(list).filter(human -> human.getGender().equalsIgnoreCase("Male") && human.getAge() > 30)
-										.count();
-		System.out.println("Count of the male candidates whose age is more than 30: " + count);
+		System.out.println("male age is more than 30 : "+ Stream.of(list).filter(c->c.getGender().equals("Male") && c.getAge()>30).count());  
+	 
 
 	}
 
