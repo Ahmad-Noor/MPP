@@ -3,7 +3,6 @@ package business;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import dataaccess.Auth;
 import dataaccess.DataAccess;
@@ -268,101 +267,6 @@ public class SystemController implements ControllerInterface {
 		}
 
 		return results;
-	}
-
-//	public List<BookCheckoutTable> getMemberBooks(String memberID)   {
-//		DataAccess da = new DataAccessFacade();
-//		HashMap<String, Book> books = da.readBooksMap();
-//
-//		List<BookCheckoutTable> results = new ArrayList<BookCheckoutTable>();
-//		HashMap<String, LibraryMember> members = da.readMemberMap();
-//
-//		for (Map.Entry me : books.entrySet()) {
-//			Book book = (Book) me.getValue();
-//
-//			for (BookCopy bookcopy : book.getCopies()) {
-//
-//				String dueDate = "";
-//				if (!bookcopy.isAvailable()) {
-//					for (LibraryMember member : members.values()) {
-//						boolean status = false; // book copy found or not
-//						List<CheckoutRecordEntry> entries = member.getCheckoutRecord().getCheckoutRecordEntries();
-//						for (CheckoutRecordEntry entry : entries) {
-//							if (entry.getBookCopy().equals(bookcopy)) {
-//								memberID = member.getMemberId();
-//								dueDate = entry.getReturnDueDate().toString();
-//								status = true;
-//								break;
-//							}
-//						}
-//						if (status)
-//							break;
-//					}
-//				}
-//
-////				List<String> templist = new ArrayList<String>();
-////				templist.add(bookcopy.getBook().getTitle());
-////				templist.add(Integer.toString(bookcopy.getCopyNum()));
-////				templist.add(memberID);
-////				templist.add(dueDate);
-//				results.add(new BookCheckoutTable(bookcopy.getBook().getIsbn(), bookcopy.getBook().getTitle(),
-//						bookcopy.getCopyNum() + "", "checkoutDate", dueDate));
-//
-//			} 
-//		}
-//		return results;
-//
-//	}
-
-	public List<BookCheckoutTable> getMemberBooks(String memberID) throws LibrarySystemException {
-		DataAccess da = new DataAccessFacade();
-//		HashMap<String, Book> books = da.readBooksMap();
-//
-		List<BookCheckoutTable> results = new ArrayList<BookCheckoutTable>();
-		HashMap<String, LibraryMember> members = da.readMemberMap();
-//
-//		for (Map.Entry me : books.entrySet()) {
-//			Book book = (Book) me.getValue();
-//
-//			for (BookCopy bookcopy : book.getCopies()) {
-//
-		String dueDate = "";
-//				if (!bookcopy.isAvailable()) {
-		LibraryMember member = members.get(memberID);
-		if(member==null) {
-			throw new LibrarySystemException("No Member found");
-			
-			
-			
-		}
-//						boolean status = false; // book copy found or not
-		List<CheckoutRecordEntry> entries = member.getCheckoutRecord().getCheckoutRecordEntries();
-		for (CheckoutRecordEntry entry : entries) {
-//							if (entry.getBookCopy().equals(bookcopy)) {
-			memberID = member.getMemberId();
-			dueDate = entry.getReturnDueDate().toString();
-//								status = true;
-		 
-//							}
-			String s21 = entry.getBookCopy().getBook().getIsbn();
-			String s2 = entry.getBookCopy().getBook().getTitle();
-			String s3 = entry.getBookCopy().getCopyNum() + "";
-			String s4 = entry.getCheckoutDate().toString();
-			BookCheckoutTable x = new BookCheckoutTable(s21, s2, s3, s4, dueDate);
-
-			results.add(x);
-		}
-//						if (status)
-//							break; 
-//				}
-
-//				results.add(new BookCheckoutTable(bookcopy.getBook().getIsbn(), bookcopy.getBook().getTitle(),
-//						bookcopy.getCopyNum() + "", "checkoutDate", dueDate));
-
-//			} 
-//		}
-		return results;
-
 	}
 
 }

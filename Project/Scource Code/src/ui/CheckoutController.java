@@ -24,7 +24,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CheckoutController {
-	SystemController controller = new SystemController();
+	SystemController control = new SystemController();
 	@FXML
 	private TextField memberIdField;
 	@FXML
@@ -48,20 +48,13 @@ public class CheckoutController {
 	private TableColumn<List<String>, String> colDueDate;
 	LibraryMember libraryMember;
 
-	
-	
-	List<BookCheckoutTable> getMemberBooks ;
-	
-	String strName ="";
-	
 	@FXML
 	public void Search() {
 		try {
-			libraryMember = controller.checkOutBook(memberIdField.getText(), isbnField.getText());
+			libraryMember = control.checkOutBook(memberIdField.getText(), isbnField.getText());
 			// System.out.println("****************");
-			strName=libraryMember.getFirstName() + " "
-					+ libraryMember.getLastName();
-			responseMessage.setText("Check Out completed Successfully to " +strName);
+			responseMessage.setText("Check Out completed Successfully to " + libraryMember.getFirstName() + " "
+					+ libraryMember.getLastName());
 
 			colISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
 			colBookTitle.setCellValueFactory(new PropertyValueFactory<>("BookTitle"));
@@ -81,13 +74,6 @@ public class CheckoutController {
 					LocalDate.now().toString(), ch.getReturnDueDate().toString()));
 			table.setItems(observableList);
 
-
-			
-			// getMemberBooks = controller.getMemberBooks(memberIdField.getText());
-			// observableList.addAll(getMemberBooks);
-				table.setItems(observableList); 
-					 
-					 
 			isbnField.setText("");
 			memberIdField.setText("");
 			// System.out.println(libraryMember.getCheckoutRecord().getCheckoutRecordEntries());
@@ -103,10 +89,8 @@ public class CheckoutController {
 	@FXML
 	public void Print() {
 
-	
-
 		System.out.println("***********************************************************");
-		System.out.println(" Member Name : "+ strName);
+		System.out.println(responseMessage.getText());
 		System.out.println("------------------------------------------------------------");
 
 		for (BookCheckoutTable bookCheckoutTable : observableList) {

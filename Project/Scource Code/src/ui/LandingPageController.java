@@ -100,10 +100,6 @@ public class LandingPageController implements Initializable  {
 		Settings.stageShow(getClass().getResource("AddUser.fxml"), "Add User");
 	}
 	
- 	public void btnMemberBooks() {
-
-		Settings.stageShow(getClass().getResource("MemberBooks.fxml"), "Member Books");
-	}
 	
 	public void checkoutBook() {
 
@@ -151,10 +147,6 @@ public class LandingPageController implements Initializable  {
 			checkoutBook.setVisible(false);
 			bntBooKDueDate.setVisible(false);
 			roleLabel.setText(SystemController.currentAuth.toString());
-			
-			btnBookStatistics.setVisible(false);
-			
-			
 		} else if (SystemController.currentAuth == Auth.LIBRARIAN) {
 			addNewLibraryMember.setVisible(false);
 			addBook.setVisible(false);
@@ -163,7 +155,8 @@ public class LandingPageController implements Initializable  {
 			
 			bntAddUsers.setVisible(false);
 			btnUserChangepassword.setVisible(false);
-			bntBookList.setVisible(false); 
+			bntBookList.setVisible(false);
+			btnBookStatistics.setVisible(false);
 			btnMembersStatistics.setVisible(false);
 			roleLabel.setText(SystemController.currentAuth.toString());
 		}	

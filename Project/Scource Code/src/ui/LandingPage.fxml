@@ -26,7 +26,7 @@
                      </font>
                   </Label>
                   <Button fx:id="bntBooKDueDate" layoutX="17.0" layoutY="492.0" mnemonicParsing="false" onAction="#BookDueDate_ClickEvent" prefHeight="0.0" prefWidth="178.0" text="BooK Due Date" />
-                  <Button fx:id="btnBookStatistics" layoutX="17.0" layoutY="533.0" mnemonicParsing="false" onAction="#btnMemberBooks" prefHeight="0.0" prefWidth="178.0" text="Member Books" />
+                  <Button fx:id="btnBookStatistics" layoutX="17.0" layoutY="533.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="178.0" text="Book Statistics" />
                   <Button fx:id="btnMembersStatistics" layoutX="17.0" layoutY="579.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="178.0" text="Members Statistics" />
                   <Button fx:id="btnUserChangepassword" layoutX="23.0" layoutY="185.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="178.0" text="User Change password" />
                   <Button fx:id="bntAddUsers" layoutX="23.0" layoutY="143.0" mnemonicParsing="false" onAction="#addNewUser" prefHeight="0.0" prefWidth="178.0" text="Add Users" />
